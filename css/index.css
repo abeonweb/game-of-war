@@ -1,0 +1,102 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/*========= 
+TYPOGRAPHY 
+=========*/
+body{
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    
+}
+
+.game-info{
+    margin:0 0 1em;
+}
+
+.computerScore{
+    margin: 0 0 0.5em;
+}
+.playerScore {
+    margin: 0.5em 0 0;
+}
+
+/*========= 
+LAYOUT 
+=========*/
+
+body{
+    background-image: url(../images/table.png);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.deck-info{
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.new-deck{
+    margin-right: 0.5em;
+
+}
+.remaining-cards{
+    display: inline;
+    margin: 0 0 1em;
+    font-size: 1rem;
+}
+
+.card {
+    height: 160px;
+    width: calc(160px *5/7);
+    border: 2px solid currentColor;
+    border-radius: 6px;
+}
+
+.card>img{
+    width: 100%;
+}
+
+.computer{
+    margin-bottom: 1.5em;
+}
+
+/*=========
+BUTTON
+========= */
+.btn{
+    background-color: goldenrod;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btn:disabled{
+    cursor: not-allowed;
+}
+
+.new-deck{
+    align-self: flex-start;
+    margin-bottom: 1.5em;
+}
+
+.draw-btn{
+    margin: auto 0 0;
+    width: 100%;
+    max-width: 500px;
+}
