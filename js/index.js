@@ -32,31 +32,33 @@ async function newDeck(){
 
 }
 
-async function handleDrawClick(){       
-    const response = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
-    const data = await response.json()
-    remaining= data.remaining
-    remainingCards.textContent = `Remaining cards: ${remaining}`
-
-    for(let index = 0; index < cards.length; index++){
-        cards[index].innerHTML = `<img src=${data.cards[index].image} alt="">`
-    }
+async function handleDrawClick(){ 
+    if(deckId){
+        const response = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
+        const data = await response.json()
+        remaining= data.remaining
+        remainingCards.textContent = `Remaining cards: ${remaining}`
         
-    roundWinner(data.cards[0].value,data.cards[1].value)
-    computer.textContent = `Computer: ${totalComputer}`
-    player.textContent = `Me: ${totalPlayer}`
-
-    if(remaining === 0){
-        drawBtn.disabled = true
-        if(totalComputer>totalPlayer)
+        for(let index = 0; index < cards.length; index++){
+            cards[index].innerHTML = `<img src=${data.cards[index].image} alt="">`
+        }
+            
+        roundWinner(data.cards[0].value,data.cards[1].value)
+        computer.textContent = `Computer: ${totalComputer}`
+        player.textContent = `Me: ${totalPlayer}`
+        
+        if(remaining === 0){
+            drawBtn.disabled = true
+            if(totalComputer>totalPlayer)
             gameInfo.textContent = `Computer wins the War`
-        else if(totalComputer<totalPlayer)
+            else if(totalComputer<totalPlayer)
             gameInfo.textContent = `You won the War`
-        else
+            else
             gameInfo.textContent = `No winner in this War`
-        
-        deckId=""
-    }
+            
+            deckId=""
+        }
+    }      
     
 }
 
